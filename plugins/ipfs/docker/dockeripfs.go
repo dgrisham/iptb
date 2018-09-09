@@ -231,10 +231,12 @@ func (l *DockerIpfs) RunCmd(ctx context.Context, stdin io.Reader, args ...string
 	if stdin != nil {
 		args = append([]string{"exec", "-i", id}, args...)
 	} else {
-		args = append([]string{"exec", id}, args...)
+		args = append([]string{"exec", "-t", id}, args...)
 	}
+	// fmt.Println(args)
 
 	cmd := exec.CommandContext(ctx, "docker", args...)
+	// cmd := exec.Command("docker", args...)
 	cmd.Stdin = stdin
 
 	stderr, err := cmd.StderrPipe()
