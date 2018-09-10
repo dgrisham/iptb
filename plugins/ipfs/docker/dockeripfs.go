@@ -51,7 +51,8 @@ var GetAttrList testbedi.GetAttrListFunc
 
 func init() {
 	NewNode = func(dir string, attrs map[string]string) (testbedi.Core, error) {
-		imagename := "ipfs/go-ipfs"
+		// imagename := "ipfs/go-ipfs"
+		imagename := "dgrisham/go-ipfs-rrq"
 		mdns := false
 
 		apiaddr, err := multiaddr.NewMultiaddr("/ip4/0.0.0.0/tcp/5001")
